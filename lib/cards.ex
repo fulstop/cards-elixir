@@ -33,8 +33,7 @@ defmodule Cards do
       ["Ace of Spades"]
   """
   def deal(deck, hand_size) do
-    {hand, _} = Enum.split(deck, hand_size)
-    hand
+    Enum.split(deck, hand_size)
   end
 
   def save(deck, filename) do
@@ -49,6 +48,14 @@ defmodule Cards do
     end
   end
 
+  @doc """
+    Determines whether a deck contains a given card
+
+    ## Examples
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Hearts")
+      true
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
